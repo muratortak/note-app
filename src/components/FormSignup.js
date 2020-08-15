@@ -2,13 +2,16 @@ import React, {useState, setState, useReducer } from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import { TextField } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button'
 
 //#region useReducer
 const initialState = {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
 }
 
 function reducer(state, {field, value}) {
@@ -34,28 +37,30 @@ function FormSignup() {
     //#endregion useReducer
 
         return (
-            <form noValidate autoComplete="off">
-                <FormControl>
-                    <InputLabel htmlFor="component-simple">Name</InputLabel>
-                    <Input id="component-simple" type="text" name="name" value={name} onChange={handleChange}></Input>
+            <Grid md={12}>
+            <form style={{ backgroundColor: '', opacity: '1', justifyContent: 'center'}} noValidate autoComplete="off">
+                <h2 style={{color: '#ff5722'}}>Signup</h2>
+                <FormControl style={{width: '100%'}}>
+                    <TextField id="outlined-basic" style={{marginBottom: '5px', backgroundColor:'#E1E1E1'}} variant="outlined" label="Name" type="text" name="name" value={name} onChange={handleChange} />
                 </FormControl>
                 <br />
-                <FormControl>
-                    <InputLabel htmlFor="component-simple">Email</InputLabel>
-                    <Input id="component-simple" type="text" name="email" value={email} onChange={handleChange}></Input>
+                <FormControl style={{width: '100%'}}>
+                    <TextField id="outlined-basic" style={{marginBottom: '5px', backgroundColor:'#E1E1E1'}} color="#ff5722"  type="text" variant="outlined" label="Email" name="email" value={email} onChange={handleChange} />
                 </FormControl>
                 <br />
-                <FormControl>
-                    <InputLabel htmlFor="component-simple">Password</InputLabel>
-                    <Input id="component-simple" type="password" name="password" value={password} onChange={handleChange}></Input>
+                <FormControl style={{width: '100%'}}>
+                    <TextField id="outlined-basic" style={{marginBottom: '5px', backgroundColor:'#E1E1E1'}}  type="password" variant="outlined" label="Password" name="password" value={password} onChange={handleChange} />
                 </FormControl>
                 <br />
-                <FormControl>
-                    <InputLabel htmlFor="component-simple">Confirm Password</InputLabel>
-                    <Input id="component-simple" type="password" name="confirmPassword" value={confirmPassword} onChange={handleChange}></Input>
+                <FormControl style={{width: '100%'}}>
+                    <TextField id="outlined-basic" style={{marginBottom: '5px', backgroundColor:'#E1E1E1' }}  type="password" variant="outlined" label="Confirm Password" name="confirmPassword" value={confirmPassword} onChange={handleChange} />
                 </FormControl>
                 <br />
+                <FormControl  style={{width: '100%'}}>
+                    <Button style={{backgroundColor: '#ff5722', color: '#ffffff'}} variant="contained">Signup</Button>
+                </FormControl>
             </form>
+            </Grid>
         )
 }
 

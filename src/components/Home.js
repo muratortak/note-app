@@ -8,34 +8,19 @@ import Navbar from './Navbar';
 import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
 import { history } from '../helpers/history';
 
-class Home extends Component {
-    
-    render() {
-        return (
-            <Container>
-                <Grid xs={12}>
-                    <Navbar />
-                </Grid>   
-                <Box>
-                <Grid sm={12} container spacing={2}>
-                    <Grid item sm={8} sc={12}>
-                        <Slide />
-                    </Grid>
-                    <Grid item sm={3} sc={12}>
-                        <Grid item sm={12} sc={12}>
-                            <h2>Signup</h2>
-                            <FormSignup />
-                        </Grid>
-                        <Grid item sm={12} sc={12}>
-                            <h2>Login</h2> 
-                            <FormLogin />
-                        </Grid>
-                    </Grid>
-                </Grid>
-                </Box>
-            </Container>
-        )
-    }
+function Home() {
+
+  return (
+    // // <Container>
+    //   {/* <Box> */}
+    //     /* <Grid sm={12} container spacing={4}> */
+          <Grid md={12} sm={12}>
+            <Slide />
+          </Grid>
+    //     {/* </Grid> */}
+    //   {/* </Box> */}
+    // // </Container>
+  );
 }
 
 export default Home;

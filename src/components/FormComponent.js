@@ -36,9 +36,9 @@ function FormComponent() {
 
     const submitForm = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3001/login', state)
+        axios.post('http://localhost:3000/login', state)
         .then(res => {
-            console.log(res);
+            console.log('login success: ', res);
             
         }).catch(err => {
             console.log(err);

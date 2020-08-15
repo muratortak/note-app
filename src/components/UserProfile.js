@@ -1,44 +1,38 @@
-import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid';
+import React, { Component, useEffect } from 'react'
+import { Grid, Card, CardActionArea, CardMedia, CardContent, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { logout } from '../actions/user.actions';
+import { getMe } from '../actions/user.actions';
 
-class UserProfile extends Component {
-    constructor(props) {
-        super(props);
-
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-
-    handleClick() {
-        this.props.dispatch(logout());
-    }
-
-    render() {
-        return (
-            <Grid>
-                <Grid>
-                    {/* {TODO: Must figure out why .user. needed} */}
-                   {this.props.user.userName}
-                   <br />
-                   {this.props.user.email}
-                   <br />
-                   {this.props.user.type}
-                   <button onClick={this.handleClick}>logout</button>
-                </Grid>
-            </Grid>
-        )
-    }
+function UserProfile(props) {
+  return (
+    <Grid>
+      <Grid>
+        <Card>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="User PP"
+              height="140"
+              image={props.user.image}
+              title={props.user.userName}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {props.user.userName}
+              </Typography>
+              <Typography gutterBottom variant="body2" color="textSecondary" component="p">
+                {props.user.description}
+                <br />
+                {props.user.email}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </Grid>
+    </Grid>
+  );
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-        user: state.user.user,
-        loading: state.user.loading,
-        hasErrors: state.user.hasErrors
-    }
-}
-
-export default connect(mapStateToProps)(UserProfile)
+// export default connect(mapStateToProps)(UserProfile)
+export default UserProfile;
